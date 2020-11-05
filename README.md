@@ -1,5 +1,5 @@
 # taxi
-Web aplication for Lezin
+
 
 ## Web application for the course " SOFTWARE development Technologies"
 Lezin I. A
@@ -11,3 +11,5 @@ Spring security
 Web mvc
 Angular
 Bootstrap
+
+SSAU 2020
