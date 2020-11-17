@@ -5,13 +5,13 @@
 Lezin I. A
 
 
-..* Hibernate
-..* Spring boot
-..* Spring security
-..* Web mvc
-..* Angular
-..* Bootstrap 4
-..* Angular material
+..*Hibernate
+..*Spring boot
+..*Spring security
+..*Web mvc
+..*Angular
+..*Bootstrap 4
+..*Angular material
 
 
 SSAU 2020
