@@ -4,7 +4,7 @@
 ## Web application for the course " SOFTWARE development Technologies"
 Lezin I. A
 
-
+⋅⋅* Unordered sub-list. 
 ..*Hibernate
 ..*Spring boot
 ..*Spring security
