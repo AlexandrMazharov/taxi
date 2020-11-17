@@ -4,7 +4,7 @@
 ## Web application for the course " SOFTWARE development Technologies"
 Lezin I. A
 
-*Hibernate
+* Hibernate
 *Spring boot
 *Spring security
 *Web mvc
