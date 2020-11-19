@@ -1,3 +1,30 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import "src/assets/variables";
+#app{
+  background-color: $bg-color;
+}
+.nav {
+  display: flex;
+  justify-content: space-around;
+
+  &__logo {
+    h1 {
+      color: white;
+    }
+  }
+
+  &__menu {
+    ul {
+      li {
+        color: #877c7c;
+        background: #f3f0f0;
+        padding: .5em 1em;
+        margin: 1em;
+        border-radius: 20px;
+      }
+    }
+  }
+}
+
 
 

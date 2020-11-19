@@ -4,10 +4,8 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-// import { MainComponent } from './components/main/main/main.component';
+
 import {ViewRolesTableComponent} from './components/main/roles/view-roles-table/view-roles-table.component';
-// import { RolesRowComponent } from './components/roles/roles-row/roles-row.component';
-// import { AddRowComponent } from './components/roles/add-row/add-row.component';
 import {RoleService} from './services/roles/role.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ViewCarTableComponent} from './components/main/car/view-car-table/view-car-table.component';
@@ -32,6 +30,13 @@ import {
   NgxMatNativeDateModule,
   NgxMatTimepickerModule
 } from '@angular-material-components/datetime-picker';
+import { ClientWindowComponent } from './components/client/client-window/client-window.component';
+import { ClientFormComponent } from './components/client/client-form/client-form.component';
+import { ClientMapComponent } from './components/client/client-map/client-map.component';
+import { DriverWindowComponent } from './components/driver/driver-window/driver-window.component';
+import { DriverMapComponent } from './components/driver/driver-map/driver-map.component';
+import { DriverFormComponent } from './components/driver/driver-form/driver-form.component';
+import {AgmCoreModule} from '@agm/core';
 
 
 @NgModule({
@@ -47,6 +52,12 @@ import {
     LoginComponent,
     TitleComponent,
     ProfileComponent,
+    ClientWindowComponent,
+    ClientFormComponent,
+    ClientMapComponent,
+    DriverWindowComponent,
+    DriverMapComponent,
+    DriverFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +77,10 @@ import {
 
     NgxMatDatetimePickerModule, NgxMatTimepickerModule,
 
-    NgxMatNativeDateModule
+    NgxMatNativeDateModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB_XBvgRMrFPJyUpHzkeIXoNkJvkQbEB5k'
+    })
   ],
   providers: [RoleService,
     authInterceptorProviders],
