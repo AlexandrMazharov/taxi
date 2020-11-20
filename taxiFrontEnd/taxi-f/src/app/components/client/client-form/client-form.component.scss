@@ -1,0 +1,36 @@
+.car-types{
+
+  &__list{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+  &__item{
+    background-color: #a09f9f;
+    border-radius: 10%;
+    padding: 1em;
+    margin: 1em;
+    cursor: pointer;
+    transition: .5s;
+    &:hover{
+      background-color: #e3d9d9;
+    }
+    p{
+      margin: 0px;
+    }
+  }
+  &__img{
+    width: 70px;
+    img{
+      width: 100%;
+    }
+  }
+    &__description{
+
+    }
+}
+
+agm-map {
+  height: 300px;
+}
+

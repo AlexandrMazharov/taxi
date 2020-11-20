@@ -79,8 +79,8 @@ import {AgmCoreModule} from '@agm/core';
 
     NgxMatNativeDateModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB_XBvgRMrFPJyUpHzkeIXoNkJvkQbEB5k'
-    })
+      apiKey: 'AIzaSyDzm0_U4sjhJo8pEq3tNmfOckaW8JHaDpo'
+    }),
   ],
   providers: [RoleService,
     authInterceptorProviders],

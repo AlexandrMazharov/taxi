@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@agm/core": "^3.0.0-beta.0",
+    "@agm/core": "1.1.0",
     "@angular-material-components/datetime-picker": "^4.0.5",
     "@angular/animations": "~10.0.2",
     "@angular/cdk": "^10.2.5",

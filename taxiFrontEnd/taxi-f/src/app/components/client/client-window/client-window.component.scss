@@ -1,0 +1,16 @@
+@import "src/assets/variables";
+
+.client-window {
+  background-color: $bg-color;
+  &__form,{
+    border-radius: 20px;
+
+  }
+  &__map{
+
+    overflow: hidden;
+    border-radius: 20px;
+  }
+}
+
+
