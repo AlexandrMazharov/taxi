@@ -23,6 +23,7 @@ public class UserTaxi {
     private int userRating;
 
 
+
     @NotBlank
     @Size(max = 20)
     private String username;

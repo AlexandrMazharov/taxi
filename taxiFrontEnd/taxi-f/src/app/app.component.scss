@@ -1,6 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "src/assets/variables";
 #app{
+  min-height: 100vh;
   background-color: $bg-color;
 }
 .nav {
@@ -17,10 +18,20 @@
     ul {
       li {
         color: #877c7c;
-        background: #f3f0f0;
-        padding: .5em 1em;
+        //background: #00B4EF;
+        padding: .2em 1em;
         margin: 1em;
         border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition:  0.5s;
+        a{
+          color: inherit;
+        }
+        &:hover{
+          transform: scale(1.1);
+        }
       }
     }
   }

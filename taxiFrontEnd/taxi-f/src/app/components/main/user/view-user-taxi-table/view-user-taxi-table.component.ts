@@ -11,8 +11,6 @@ import {RoleService} from '../../../../services/roles/role.service';
 })
 export class ViewUserTaxiTableComponent implements OnInit {
 
-
-  //типы шаблонов
   @ViewChild('readOnlyTemplate', {static: false}) readOnlyTemplate: TemplateRef<any>;
   @ViewChild('editTemplate', {static: false}) editTemplate: TemplateRef<any>;
 
@@ -27,22 +25,25 @@ export class ViewUserTaxiTableComponent implements OnInit {
     this.userRole = new Array<Role>();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadUserTaxi();
     this.loadRoles();
   }
 
-  //загрузка
-  private loadUserTaxi() {
+  // загрузка
+  private loadUserTaxi(): void {
     this.serv.getUserTaxi().subscribe((data: UserTaxi[]) => {
+      const onliDriver = data.filter(item => {
+        return item.userRoles.length === 2;
+      });
       console.log(data);
-      this.userTaxi = data;
+      this.userTaxi = onliDriver;
       console.log(this.userTaxi);
     });
   }
 
-  //загрузка ролей
-  private loadRoles() {
+  // загрузка ролей
+  private loadRoles(): void {
     this.servRole.getRoles().subscribe((data: Role[]) => {
       console.log(data);
       this.userRole = data;
@@ -52,14 +53,14 @@ export class ViewUserTaxiTableComponent implements OnInit {
   }
 
   // добавление пользователя
-  addUserTaxi() {
+  addUserTaxi(): void {
     this.editedUserTaxi = new UserTaxi(0, '', '', '', '', '', 0, []);
     this.userTaxi.push(this.editedUserTaxi);
     this.isNewRecord = true;
   }
 
   // редактирование пользователя
-  editUserTaxi(userTaxi: UserTaxi) {
+  editUserTaxi(userTaxi: UserTaxi): void {
     console.log('click edit car');
     console.log(userTaxi);
     this.editedUserTaxi = new UserTaxi(userTaxi.userId, userTaxi.userEmail,
@@ -70,7 +71,7 @@ export class ViewUserTaxiTableComponent implements OnInit {
   }
 
   // загружаем один из двух шаблонов
-  loadTemplate(userTaxi: UserTaxi) {
+  loadTemplate(userTaxi: UserTaxi): any {
     if (this.editedUserTaxi && this.editedUserTaxi.userId === userTaxi.userId) {
       return this.editTemplate;
     } else {
@@ -79,7 +80,7 @@ export class ViewUserTaxiTableComponent implements OnInit {
   }
 
   // сохраняем пользователя
-  saveUserTaxi() {
+  saveUserTaxi(): void {
     if (this.isNewRecord) {
       // добавляем пользователя
       this.serv.createUserTaxi(this.editedUserTaxi).subscribe(data => {
@@ -105,7 +106,7 @@ export class ViewUserTaxiTableComponent implements OnInit {
   }
 
   // отмена редактирования
-  cancel() {
+  cancel(): void {
     // если отмена при добавлении, удаляем последнюю запись
     if (this.isNewRecord) {
       this.userTaxi.pop();
@@ -115,7 +116,7 @@ export class ViewUserTaxiTableComponent implements OnInit {
   }
 
   // удаление пользователя
-  deleteUserTaxi(userTaxi: UserTaxi) {
+  deleteUserTaxi(userTaxi: UserTaxi): void {
     this.serv.deleteUserTaxi(userTaxi?.userId).subscribe(data => {
       this.statusMessage = 'Данные успешно удалены',
         this.loadUserTaxi();

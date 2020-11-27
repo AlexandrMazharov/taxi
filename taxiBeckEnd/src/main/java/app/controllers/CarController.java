@@ -20,13 +20,13 @@ public class CarController {
 
     //получить все записи
     @GetMapping("/cars")
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('DRIVER') or hasRole('ADMIN')")
     public ResponseEntity<List<Car>> getAllNotes() {
         return ResponseEntity.ok(carRepoitory.findAll());
     }
 
     // Получить запись по id
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('DRIVER') or hasRole('ADMIN')")
     @GetMapping("/cars/{id}")
     public Car getNoteById(@PathVariable(value = "id") Long carId) throws Throwable {
         return (Car) carRepoitory.findById(carId)
@@ -34,7 +34,7 @@ public class CarController {
     }
 
     // Обновить запись
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('DRIVER') or hasRole('ADMIN')")
     @PutMapping("/cars/upd/{id}")
     public Car updateNote(@PathVariable(value = "id") Long carId,
                           @Valid
@@ -55,14 +55,14 @@ public class CarController {
     }
 
     // Создать запись
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('DRIVER') or hasRole('ADMIN')")
     @PostMapping("/cars")
     public Car createNote(@Valid @RequestBody Car car) {
         return carRepoitory.save(car);
     }
 
     //удалить запись
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('DRIVER') or hasRole('ADMIN')")
     @DeleteMapping("/cars/{id}")
     public ResponseEntity deleteBook(@PathVariable(value = "id") Long carId) throws Throwable {
 

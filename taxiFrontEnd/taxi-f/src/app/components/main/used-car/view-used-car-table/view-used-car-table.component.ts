@@ -14,7 +14,7 @@ import {CarsService} from '../../../../services/cars/cars.service';
 export class ViewUsedCarTableComponent implements OnInit {
 
 
-  //типы шаблонов
+  // типы шаблонов
   @ViewChild('readOnlyTemplate', {static: false}) readOnlyTemplate: TemplateRef<any>;
   @ViewChild('editTemplate', {static: false}) editTemplate: TemplateRef<any>;
 
@@ -34,46 +34,46 @@ export class ViewUsedCarTableComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadUsedCar();
     this.loadUsers();
     this.laordCars();
 
   }
 
-//загрузка юзеров
-  public loadUsers() {
+// загрузка юзеров
+  public loadUsers(): void {
     this.serverUser.getUserTaxi().subscribe((data: UserTaxi[]) => {
       console.log(data);
       this.users = data;
     });
   }
 
-  //загрузка машин
-  private laordCars() {
+  // загрузка машин
+  private laordCars(): void {
     this.serverCar.getCars().subscribe((data: Car[]) => {
       this.cars = data;
       console.log(this.cars);
     });
   }
 
-  //загрузка
-  private loadUsedCar() {
+  // загрузка
+  private loadUsedCar(): void {
     this.serv.getUsedCar().subscribe((data: UsedCar[]) => {
       this.usedCar = data;
       console.log(this.usedCar);
     });
   }
 
-  // добавление пользователя
-  addUsedCar() {
+
+  addUsedCar(): void {
     this.editedUsedCar = new UsedCar(0, Object(), Object(), '', '');
     this.usedCar.push(this.editedUsedCar);
     this.isNewRecord = true;
   }
 
   // редактирование пользователя
-  editUsedCar(usedCar: UsedCar) {
+  editUsedCar(usedCar: UsedCar): void {
     console.log(usedCar);
     this.editedUsedCar = new UsedCar(
       usedCar.used_car__id, usedCar.used_car__driver, usedCar.used_car__car,
@@ -81,7 +81,7 @@ export class ViewUsedCarTableComponent implements OnInit {
   }
 
   // загружаем один из двух шаблонов
-  loadTemplate(usedCar: UsedCar) {
+  loadTemplate(usedCar: UsedCar): any {
     if (this.editedUsedCar && this.editedUsedCar.used_car__id === usedCar.used_car__id) {
       return this.editTemplate;
     } else {
@@ -90,7 +90,7 @@ export class ViewUsedCarTableComponent implements OnInit {
   }
 
   // сохраняем пользователя
-  saveUsedCar() {
+  saveUsedCar(): void {
     if (this.isNewRecord) {
       // добавляем пользователя
       this.serv.createUsedCar(this.editedUsedCar).subscribe(data => {
@@ -109,13 +109,15 @@ export class ViewUsedCarTableComponent implements OnInit {
       this.editedUsedCar = null;
     }
   }
-changeDateFormat(){
-  this.editedUsedCar.used_car__form = new Date(this.editedUsedCar.used_car__form).toDateString();
-  this.editedUsedCar.used_car__with = new Date(this.editedUsedCar.used_car__form).toDateString();
 
-}
+  changeDateFormat(): void {
+    this.editedUsedCar.used_car__form = new Date(this.editedUsedCar.used_car__form).toDateString();
+    this.editedUsedCar.used_car__with = new Date(this.editedUsedCar.used_car__form).toDateString();
+
+  }
+
   // отмена редактирования
-  cancel() {
+  cancel(): void {
     // если отмена при добавлении, удаляем последнюю запись
     if (this.isNewRecord) {
       this.usedCar.pop();
@@ -125,7 +127,7 @@ changeDateFormat(){
   }
 
   // удаление пользователя
-  deleteUsedCar(usedCar: UsedCar) {
+  deleteUsedCar(usedCar: UsedCar): void {
     this.serv.deleteUsedCar(usedCar?.used_car__id).subscribe(data => {
       this.statusMessage = 'Данные успешно удалены',
         this.loadUsedCar();
@@ -133,8 +135,8 @@ changeDateFormat(){
   }
 
 
-  picker2Change() {
-    console.log("click");
+  picker2Change(): void {
+    console.log('click');
 
     this.editedUsedCar.used_car__form = new Date(this.editedUsedCar.used_car__form).toDateString();
     console.log(this.editedUsedCar.used_car__form);

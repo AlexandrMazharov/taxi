@@ -13,9 +13,18 @@ public class Car {
     private String car_model;
     private String car_color;
     private String car_type;
+    private Double car_price;
 
     public Car() {
         super();
+    }
+
+    public Double getCar_price() {
+        return car_price;
+    }
+
+    public void setCar_price(Double car_price) {
+        this.car_price = car_price;
     }
 
     public String getCar_number() {

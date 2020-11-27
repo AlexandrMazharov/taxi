@@ -2,9 +2,8 @@ import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {Trip} from '../../../../entity/Trip';
 import {TripService} from '../../../../services/trip/trip.service';
 import {UserTaxi} from '../../../../entity/UserTaxi';
-import {Car} from '../../../../entity/Car';
 import {UserTaxiService} from '../../../../services/user-taxi/user-taxi.service';
-import {CarsService} from '../../../../services/cars/cars.service';
+
 
 @Component({
   selector: 'app-view-trip-table',

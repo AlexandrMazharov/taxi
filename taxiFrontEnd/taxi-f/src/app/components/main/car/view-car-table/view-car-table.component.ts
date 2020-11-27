@@ -23,24 +23,12 @@ export class ViewCarTableComponent implements OnInit {
     this.cars = new Array<Car>();
   }
 
-  ngOnInit() {
-    // this.userService.getUserBoard().subscribe((data) => {
-    //   console.log(data);
-    // });
-    // this.userService.getUserBoard().subscribe(
-    //   data => {
-    //     console.log(data);
-    //   },
-    //   err => {
-    //     console.log( JSON.parse(err.error).message);
-    //   }
-    // );
-
+  ngOnInit(): void {
     this.loadCars();
   }
 
-  //загрузка
-  private loadCars() {
+  // загрузка
+  private loadCars(): void {
     this.serv.getCars().subscribe((data: Car[]) => {
       console.log(data);
       this.cars = data;
@@ -49,24 +37,24 @@ export class ViewCarTableComponent implements OnInit {
   }
 
   // добавление пользователя
-  addCar() {
-    this.editedCar = new Car(0, '', '', '', '');
+  addCar(): void {
+    this.editedCar = new Car(0, '', '', '', '', 0);
     this.cars.push(this.editedCar);
     this.isNewRecord = true;
   }
 
   // редактирование пользователя
-  editCar(car: Car) {
+  editCar(car: Car): void {
     console.log('click edit car');
     console.log(car);
     this.editedCar = new Car(car.car_id, car.car_number,
-      car.car_model, car.car_color, car.car_type
+      car.car_model, car.car_color, car.car_type, 0
     )
     ;
   }
 
   // загружаем один из двух шаблонов
-  loadTemplate(car: Car) {
+  loadTemplate(car: Car): any {
     if (this.editedCar && this.editedCar.car_id === car.car_id) {
       return this.editTemplate;
     } else {
@@ -75,7 +63,7 @@ export class ViewCarTableComponent implements OnInit {
   }
 
   // сохраняем пользователя
-  saveCar() {
+  saveCar(): void {
     if (this.isNewRecord) {
       // добавляем пользователя
       this.serv.createCar(this.editedCar).subscribe(data => {
@@ -95,7 +83,7 @@ export class ViewCarTableComponent implements OnInit {
   }
 
   // отмена редактирования
-  cancel() {
+  cancel(): void {
     // если отмена при добавлении, удаляем последнюю запись
     if (this.isNewRecord) {
       this.cars.pop();
@@ -105,7 +93,7 @@ export class ViewCarTableComponent implements OnInit {
   }
 
   // удаление пользователя
-  deleteCar(car: Car) {
+  deleteCar(car: Car): void {
     this.serv.deleteCar(car?.car_id).subscribe(data => {
       this.statusMessage = 'Данные успешно удалены',
         this.loadCars();

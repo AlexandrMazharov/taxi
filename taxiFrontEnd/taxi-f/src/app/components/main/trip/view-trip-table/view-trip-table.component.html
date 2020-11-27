@@ -1,5 +1,5 @@
 <h2>Поездки</h2>
-<input type="button" value="Добавить" class="btn btn-sm btn-success" (click)="addTrip()"/>
+<!--<input type="button" value="Добавить" class="btn btn-sm btn-success" (click)="addTrip()"/>-->
 <div class="row border-bottom w-100 bg-light p-2">
   <div class="col">Водитель</div>
   <div class="col">Пользователь</div>
@@ -7,13 +7,13 @@
   <div class="col">Адрес конечный</div>
   <div class="col">Цена</div>
   <div class="col">Отзыв</div>
-  <div class="col"></div>
-  <div class="col"></div>
+<!--  <div class="col"></div>-->
+<!--  <div class="col"></div>-->
 </div>
 <div *ngFor="let trip of trips">
   <ng-template [ngTemplateOutlet]="loadTemplate(trip)" [ngTemplateOutletContext]="{ $implicit: trip}"></ng-template>
 </div>
-<div class="alert alert-primary" role="alert">{{statusMessage}}</div>
+<!--<div class="alert alert-primary" role="alert">{{statusMessage}}</div>-->
 
  
     
@@ -26,12 +26,12 @@
     <div class="col">{{trip?.trip_adress_b}}</div>
     <div class="col">{{trip?.trip_price}}</div>
     <div class="col">{{trip?.trip_feedback}}</div>
-    <div class="col">
-      <input type="button" value="Изменить" class="btn  btn-sm btn-primary" (click)="editTrip(trip)"/>
-    </div>
-    <div class="col">
-      <input type="button" value="Удалить" (click)="deleteTrip(trip)" class="btn btn-sm btn-danger"/>
-    </div>
+<!--    <div class="col">-->
+<!--      <input type="button" value="Изменить" class="btn  btn-sm btn-primary" (click)="editTrip(trip)"/>-->
+<!--    </div>-->
+<!--    <div class="col">-->
+<!--      <input type="button" value="Удалить" (click)="deleteTrip(trip)" class="btn btn-sm btn-danger"/>-->
+<!--    </div>-->
   </div>
 </ng-template>
    

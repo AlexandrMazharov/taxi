@@ -37,6 +37,7 @@ import { DriverWindowComponent } from './components/driver/driver-window/driver-
 import { DriverMapComponent } from './components/driver/driver-map/driver-map.component';
 import { DriverFormComponent } from './components/driver/driver-form/driver-form.component';
 import {AgmCoreModule} from '@agm/core';
+import { ManagerWindowComponent } from './components/manager/manager-window/manager-window.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import {AgmCoreModule} from '@agm/core';
     DriverWindowComponent,
     DriverMapComponent,
     DriverFormComponent,
+    ManagerWindowComponent,
   ],
   imports: [
     BrowserModule,
