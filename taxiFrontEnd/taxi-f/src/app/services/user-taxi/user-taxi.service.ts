@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {UserTaxi} from '../../entity/UserTaxi';
-import {catchError} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 import {throwError} from "rxjs";
 
 @Injectable({
@@ -13,6 +13,10 @@ export class UserTaxiService {
   constructor(private http: HttpClient) {
   }
 
+  getUserById(id: number){
+    return this.http.get(this.url);
+  }
+
   getUserTaxi() {
 
     return this.http.get(this.url);
@@ -20,7 +24,7 @@ export class UserTaxiService {
 
   createUserTaxi(userTaxi: UserTaxi) {
     const myHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(this.url, JSON.stringify(userTaxi), {headers: myHeaders}) ;
+    return this.http.post(this.url, JSON.stringify(userTaxi), {headers: myHeaders});
   }
 
   updateUserTaxi(userTaxi: UserTaxi) {

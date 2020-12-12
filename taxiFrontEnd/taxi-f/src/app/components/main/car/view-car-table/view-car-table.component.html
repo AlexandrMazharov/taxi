@@ -6,6 +6,7 @@
     <div class="col">Model</div>
     <div class="col">Number</div>
     <div class="col">Type</div>
+    <div class="col">Прайс, руб/км</div>
     <div class="col"></div>
     <div class="col"></div>
   </div>
@@ -24,6 +25,7 @@
     <div class="col">{{car?.car_model}}</div>
     <div class="col">{{car?.car_number}}</div>
     <div class="col">{{car?.car_type}}</div>
+    <div class="col">{{car?.car_price}}</div>
     <div class="col"><input type="button" value="Изменить" class="btn btn-sm btn-primary" (click)="editCar(car)"/></div>
     <div class="col"><input type="button" value="Удалить" (click)="deleteCar(car)" class="btn  btn-sm btn-danger"/>
     </div>
@@ -36,6 +38,7 @@
     <div class="col"><input type="text" [(ngModel)]="editedCar.car_model" class="form-control form-control-sm"/></div>
     <div class="col"><input type="text" [(ngModel)]="editedCar.car_number" class="form-control form-control-sm"/></div>
     <div class="col"><input type="text" [(ngModel)]="editedCar.car_type" class="form-control form-control-sm"/></div>
+    <div class="col"><input type="number" [(ngModel)]="editedCar.car_price" class="form-control form-control-sm"/></div>
     <div class="col"><input type="button" value="Сохранить" (click)="saveCar()" class="btn btn-sm btn-success"/></div>
     <div class="col"><input type="button" value="Отмена" (click)="cancel()" class="btn btn-sm btn-warning"/></div>
   </div>

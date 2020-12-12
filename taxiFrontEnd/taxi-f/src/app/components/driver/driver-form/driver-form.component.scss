@@ -12,5 +12,28 @@
   }
 }
 
+.btn--close {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .arrow {
+    width: 50px;
+
+    img {
+      width: 100%;
+    }
+  }
+  .alert {
+    margin: .4em;
+    padding: .4em;
+  }
+  .order-description__item {
+    margin: .4em;
+    padding: .4em;
+
+  }
+}
+
 
 

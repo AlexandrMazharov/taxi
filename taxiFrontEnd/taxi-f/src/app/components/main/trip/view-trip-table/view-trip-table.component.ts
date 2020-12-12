@@ -13,7 +13,7 @@ import {UserTaxiService} from '../../../../services/user-taxi/user-taxi.service'
 export class ViewTripTableComponent implements OnInit {
 
 
-  //типы шаблонов
+  // типы шаблонов
   @ViewChild('readOnlyTemplate', {static: false}) readOnlyTemplate: TemplateRef<any>;
   @ViewChild('editTemplate', {static: false}) editTemplate: TemplateRef<any>;
 
@@ -36,7 +36,7 @@ export class ViewTripTableComponent implements OnInit {
     this.loadUsers();
   }
 
-//загрузка юзеров
+  // загрузка юзеров
   public loadUsers() {
     this.serverUser.getUserTaxi().subscribe((data: UserTaxi[]) => {
       console.log(data);
@@ -44,7 +44,7 @@ export class ViewTripTableComponent implements OnInit {
     });
   }
 
-  //загрузка
+  // загрузка
   private loadTrips() {
     this.serv.getTrips().subscribe((data: Trip[]) => {
       console.log(data);
@@ -57,7 +57,7 @@ export class ViewTripTableComponent implements OnInit {
   // добавление пользователя
   addTrip() {
     this.editedTrip = new Trip(0, '', '',
-      0, '', Object(), Object());
+      0, '', Object(), Object(), '');
     this.trips.push(this.editedTrip);
     this.isNewRecord = true;
   }
@@ -68,7 +68,7 @@ export class ViewTripTableComponent implements OnInit {
     console.log(trip);
     this.editedTrip = new Trip(trip.trip_id, trip.trip_adress_a,
       trip.trip_adress_b, trip.trip_price,
-      trip.trip_feedback, trip.trip_user, trip.trip_dirver
+      trip.trip_feedback, trip.trip_user, trip.trip_dirver, trip.trip_status
     );
 
   }
@@ -121,6 +121,4 @@ export class ViewTripTableComponent implements OnInit {
         this.loadTrips();
     });
   }
-
-
 }

@@ -48,6 +48,7 @@ public class CarController {
         car.setCar_model(carDetails.getCar_model());
         car.setCar_number(carDetails.getCar_number());
         car.setCar_type(carDetails.getCar_type());
+        car.setCar_type(carDetails.getCar_price().toString());
 
 
         Car updateCar = (Car) carRepoitory.save(car);

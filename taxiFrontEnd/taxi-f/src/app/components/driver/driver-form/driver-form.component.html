@@ -2,28 +2,30 @@
   <h2 class="text-center">Информация о заказе</h2>
 
   <div class="alert alert-secondary" role="alert">
-    Откуда
+    {{this.currentTrip.trip_adress_a}}
   </div>
-  <div class ="mx-auto d-inline-block" >
-    <img src="assets/img/Arrow.png"   alt="arrow">
+  <div class="mx-auto d-inline-block arrow">
+    <img src="assets/img/Arrow.png" alt="arrow">
   </div>
 
   <div class="alert alert-secondary" role="alert">
-    Куда
+    {{this.currentTrip.trip_adress_b}}
   </div>
 
-  <div class="order-description ">
-    <div class="order-description__item ">374р</div>
+  <div class="order-description d-flex flex-wrap">
+    <div class="order-description__item ">{{this.currentTrip.trip_price}}</div>
     <div class="order-description__item ">Оплата наличными</div>
     <div class="order-description__item ">Эконом</div>
   </div>
   <div class="row">
-    <button type="button" class="btn btn-primary mx-auto d-block my-2">Поехали</button>
-    <button type="button" class="btn btn-primary mx-auto d-block my-2">Другой</button>
+    <button type="button" (click)="startCurrentTrip()" class="btn btn-primary mx-auto d-block my-2">Поехали</button>
+    <button type="button" (click)="getNext()" class="btn btn-primary mx-auto d-block my-2">Другой</button>
+  </div>
+  <div class="row" [ngClass]="this.statusTrip== 'driverOnWay'? '': 'btn--close' ">
+    <button type="button" (click)="this.closeTrip()" class=" btn btn-success mx-auto d-block my-2">Завершить</button>
+  </div>
+  <div class="alert alert-primary" [ngClass]=" this.statusTrip== 'driverOnWay'? '': 'd-none' " role="alert">
+    Это основное уведомление — check it out!
   </div>
 
-
-
-
 </form>
-

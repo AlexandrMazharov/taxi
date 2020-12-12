@@ -1,46 +1,46 @@
 <div id="app">
-<!--  <nav class="navbar navbar-expand navbar-dark bg-dark">-->
-<!--    <a routerLink="" href="#" class="navbar-brand">AngularTaxi</a>-->
-<!--    <ul class="navbar-nav mr-auto" routerLinkActive="active" *ngIf="isLoggedIn">-->
+  <!--  <nav class="navbar navbar-expand navbar-dark bg-dark">-->
+  <!--    <a routerLink="" href="#" class="navbar-brand">AngularTaxi</a>-->
+  <!--    <ul class="navbar-nav mr-auto" routerLinkActive="active" *ngIf="isLoggedIn">-->
 
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" routerLinkActive="active" href="#" routerLink="/car">Машины <span-->
-<!--          class="sr-only">(current)</span></a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" routerLinkActive="active" href="#" routerLink="/role">Роли</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" routerLinkActive="active" href="#" routerLink="/usedcar">Используемые машины</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link " routerLinkActive="active" href="#" routerLink="usertaxi">Пользователи</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link " routerLinkActive="active" href="#" routerLink="trip">Поездки</a>-->
-<!--      </li>-->
+  <!--      <li class="nav-item">-->
+  <!--        <a class="nav-link" routerLinkActive="active" href="#" routerLink="/car">Машины <span-->
+  <!--          class="sr-only">(current)</span></a>-->
+  <!--      </li>-->
+  <!--      <li class="nav-item">-->
+  <!--        <a class="nav-link" routerLinkActive="active" href="#" routerLink="/role">Роли</a>-->
+  <!--      </li>-->
+  <!--      <li class="nav-item">-->
+  <!--        <a class="nav-link" routerLinkActive="active" href="#" routerLink="/usedcar">Используемые машины</a>-->
+  <!--      </li>-->
+  <!--      <li class="nav-item">-->
+  <!--        <a class="nav-link " routerLinkActive="active" href="#" routerLink="usertaxi">Пользователи</a>-->
+  <!--      </li>-->
+  <!--      <li class="nav-item">-->
+  <!--        <a class="nav-link " routerLinkActive="active" href="#" routerLink="trip">Поездки</a>-->
+  <!--      </li>-->
 
 
-<!--    </ul>-->
+  <!--    </ul>-->
 
-<!--    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">-->
-<!--      <li class="nav-item">-->
-<!--        <a href="/register" class="nav-link" routerLink="register">Регистрация</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a href="/login" class="nav-link" routerLink="login">Вход</a>-->
-<!--      </li>-->
-<!--    </ul>-->
+  <!--    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">-->
+  <!--      <li class="nav-item">-->
+  <!--        <a href="/register" class="nav-link" routerLink="register">Регистрация</a>-->
+  <!--      </li>-->
+  <!--      <li class="nav-item">-->
+  <!--        <a href="/login" class="nav-link" routerLink="login">Вход</a>-->
+  <!--      </li>-->
+  <!--    </ul>-->
 
-<!--    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">-->
-<!--      <li class="nav-item">-->
-<!--        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a href class="nav-link" (click)="logout()">LogOut</a>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </nav>-->
+  <!--    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">-->
+  <!--      <li class="nav-item">-->
+  <!--        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>-->
+  <!--      </li>-->
+  <!--      <li class="nav-item">-->
+  <!--        <a href class="nav-link" (click)="logout()">LogOut</a>-->
+  <!--      </li>-->
+  <!--    </ul>-->
+  <!--  </nav>-->
 
   <nav class="nav">
     <div class="nav__logo">
@@ -49,8 +49,8 @@
     <div class="nav__menu">
 
       <ul class="list-unstyled list-group list-group-horizontal" *ngIf="isLoggedIn">
+        <li *ngIf="this.roles.includes('ROLE_ADMIN')">Главная</li>
         <li routerLink="trip" *ngIf="this.roles.includes('ROLE_ADMIN')">История</li>
-        <li *ngIf="this.roles.includes('ROLE_ADMIN')">Аналитика?</li>
         <li routerLink="car" *ngIf="this.roles.includes('ROLE_ADMIN')">Машины</li>
         <li routerLink="usertaxi" *ngIf="this.roles.includes('ROLE_ADMIN')">Водители</li>
         <li routerLink="usedcar" *ngIf="this.roles.includes('ROLE_ADMIN')">Рейсы</li>
@@ -78,9 +78,9 @@
     <!--    <div  *ngIf="!isLoggedIn" class="alert alert-primary" role="alert">-->
     <!--      Авторизируйтесь, чтобы работать с таблицами!-->
     <!--    </div>-->
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
 
   </div>
 

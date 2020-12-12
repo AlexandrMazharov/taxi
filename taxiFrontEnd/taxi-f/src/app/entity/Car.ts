@@ -14,4 +14,6 @@ export class Car {
     this.car_type = car_type;
     this.car_price = car_price;
   }
+
+
 }

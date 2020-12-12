@@ -1,36 +1,59 @@
-.car-types{
+.car-types {
 
-  &__list{
+  &__list {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
   }
-  &__item{
+
+  &__item {
+
     background-color: #a09f9f;
     border-radius: 10%;
     padding: 1em;
     margin: 1em;
     cursor: pointer;
     transition: .5s;
-    &:hover{
+
+    &:hover {
       background-color: #e3d9d9;
     }
-    p{
+
+    p {
       margin: 0px;
     }
   }
-  &__img{
+
+  &__img {
     width: 70px;
-    img{
+
+    img {
       width: 100%;
     }
   }
-    &__description{
 
-    }
+  &__description {
+
+  }
 }
 
 agm-map {
   height: 300px;
 }
+.activeTarif{
+  background-color: #1a1919;
+  color: white;
 
+}
+@media screen and (max-width: 992px) {
+  .car-types {
+    &__item {
+      padding: .5rem;
+      margin: .5rem;
+    }
+
+    &__img {
+      width: 40px;
+    }
+  }
+}

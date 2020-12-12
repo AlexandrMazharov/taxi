@@ -19,9 +19,9 @@ import {TitleComponent} from './components/main/title/title.component';
 import {ProfileComponent} from './components/auth/profile/profile.component';
 import {CommonModule} from '@angular/common';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule, } from '@angular/material/input';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 
@@ -30,15 +30,17 @@ import {
   NgxMatNativeDateModule,
   NgxMatTimepickerModule
 } from '@angular-material-components/datetime-picker';
-import { ClientWindowComponent } from './components/client/client-window/client-window.component';
-import { ClientFormComponent } from './components/client/client-form/client-form.component';
-import { ClientMapComponent } from './components/client/client-map/client-map.component';
-import { DriverWindowComponent } from './components/driver/driver-window/driver-window.component';
-import { DriverMapComponent } from './components/driver/driver-map/driver-map.component';
-import { DriverFormComponent } from './components/driver/driver-form/driver-form.component';
-import {AgmCoreModule} from '@agm/core';
-import { ManagerWindowComponent } from './components/manager/manager-window/manager-window.component';
-
+import {ClientWindowComponent} from './components/client/client-window/client-window.component';
+import {ClientFormComponent} from './components/client/client-form/client-form.component';
+import {ClientMapComponent} from './components/client/client-map/client-map.component';
+import {DriverWindowComponent} from './components/driver/driver-window/driver-window.component';
+import {DriverMapComponent} from './components/driver/driver-map/driver-map.component';
+import {DriverFormComponent} from './components/driver/driver-form/driver-form.component';
+import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
+import {ManagerWindowComponent} from './components/manager/manager-window/manager-window.component';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ControlPosition } from '@agm/core/services/google-maps-types';
+import { ViewPriceComponent } from './components/main/viev-price/view-price.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { ManagerWindowComponent } from './components/manager/manager-window/mana
     DriverMapComponent,
     DriverFormComponent,
     ManagerWindowComponent,
+    ViewPriceComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,9 +86,13 @@ import { ManagerWindowComponent } from './components/manager/manager-window/mana
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDzm0_U4sjhJo8pEq3tNmfOckaW8JHaDpo'
     }),
+    // NgbModule.forRoot()
+
   ],
-  providers: [RoleService,
-    authInterceptorProviders],
+  providers: [
+    RoleService,
+    authInterceptorProviders,
+    GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule {

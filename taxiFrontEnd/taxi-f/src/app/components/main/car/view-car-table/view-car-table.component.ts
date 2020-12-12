@@ -48,7 +48,7 @@ export class ViewCarTableComponent implements OnInit {
     console.log('click edit car');
     console.log(car);
     this.editedCar = new Car(car.car_id, car.car_number,
-      car.car_model, car.car_color, car.car_type, 0
+      car.car_model, car.car_color, car.car_type, car.car_price
     )
     ;
   }

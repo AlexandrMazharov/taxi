@@ -7,7 +7,7 @@
   <div class="col">Адрес конечный</div>
   <div class="col">Цена</div>
   <div class="col">Отзыв</div>
-<!--  <div class="col"></div>-->
+  <div class="col">Статус</div>
 <!--  <div class="col"></div>-->
 </div>
 <div *ngFor="let trip of trips">
@@ -20,12 +20,13 @@
 <!--шаблон для чтения-->
 <ng-template #readOnlyTemplate let-trip>
   <div class="row  py-1  border-bottom w-100">
-    <div class="col">{{trip?.trip_dirver.userEmail}}</div>
-    <div class="col">{{trip?.trip_user.userEmail}}</div>
+    <div class="col">{{trip?.trip_dirver?.userEmail}}</div>
+    <div class="col">{{trip?.trip_user?.userEmail}}</div>
     <div class="col">{{trip?.trip_adress_a}}</div>
     <div class="col">{{trip?.trip_adress_b}}</div>
     <div class="col">{{trip?.trip_price}}</div>
     <div class="col">{{trip?.trip_feedback}}</div>
+    <div class="col">{{trip?.trip_status}}</div>
 <!--    <div class="col">-->
 <!--      <input type="button" value="Изменить" class="btn  btn-sm btn-primary" (click)="editTrip(trip)"/>-->
 <!--    </div>-->

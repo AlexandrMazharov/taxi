@@ -46,6 +46,7 @@ public class TripController {
         trip.setTrip_adress_a(tripDetails.getTrip_adress_a());
         trip.setTrip_adress_b(tripDetails.getTrip_adress_b());
         trip.setTrip_feedback(tripDetails.getTrip_feedback());
+        trip.setTrip_status(tripDetails.getTrip_status());
 
 
         Trip updateTrip = (Trip) tripRepository.save(trip);

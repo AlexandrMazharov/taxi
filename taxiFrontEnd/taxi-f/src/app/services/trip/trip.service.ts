@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Trip} from '../../entity/Trip';
 
@@ -12,24 +12,23 @@ export class TripService {
   constructor(private http: HttpClient) {
   }
 
-  getTrips() {
-
+  getTrips(): any {
     return this.http.get(this.url);
   }
 
-  createTrip(trip: Trip) {
+  createTrip(trip: Trip): any {
     const myHeaders = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.url, JSON.stringify(trip), {headers: myHeaders});
   }
 
-  updateTrip(trip: Trip) {
+  updateTrip(trip: Trip): any {
     console.log(trip);
     const myHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-    let updUrl = 'http://localhost:8080/trip/upd/';
+    const updUrl = 'http://localhost:8080/trip/upd/';
     return this.http.put(updUrl + trip.trip_id, JSON.stringify(trip), {headers: myHeaders});
   }
 
-  deleteTrip(id: number) {
+  deleteTrip(id: number): any {
     return this.http.delete(this.url + '/' + id);
   }
 

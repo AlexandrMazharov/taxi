@@ -12,6 +12,16 @@ public class Trip {
     private String trip_adress_b;
     private int trip_price;
     private String trip_feedback;
+
+    public String getTrip_status() {
+        return trip_status;
+    }
+
+    public void setTrip_status(String trip_status) {
+        this.trip_status = trip_status;
+    }
+
+    private String trip_status;
     @ManyToOne
     @JoinColumn(name = "user_id_u")
     private UserTaxi trip_user;

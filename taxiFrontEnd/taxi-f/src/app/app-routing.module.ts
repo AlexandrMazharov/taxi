@@ -13,6 +13,7 @@ import {ProfileComponent} from './components/auth/profile/profile.component';
 import {ClientWindowComponent} from './components/client/client-window/client-window.component';
 import {DriverWindowComponent} from './components/driver/driver-window/driver-window.component';
 import {ManagerWindowComponent} from './components/manager/manager-window/manager-window.component';
+import {ViewPriceComponent} from "./components/main/viev-price/view-price.component";
 
 
 
@@ -29,6 +30,8 @@ const appRoutes: Routes = [
   {path: 'manager', component: ManagerWindowComponent},
   {path: 'driver', component: DriverWindowComponent},
   {path: 'client', component: ClientWindowComponent},
+  {path: 'price', component: ViewPriceComponent},
+
 
 ];
 
